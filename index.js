@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+const $PORT = 8080;
 
 const routerApi = require("./routes/router");
-const $PORT = 8080;
+
+app.use(express.json())
 
 routerApi(app)
 
