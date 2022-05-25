@@ -3,12 +3,13 @@ const app = express();
 const $PORT = 8080;
 
 const routerApi = require("./routes/router");
-const {logErrors, errorHandler} = require("./middlewares/error.handler")
+const {logErrors, errorHandler, boomErrorHandler} = require("./middlewares/error.handler")
 
 
 app.use(express.json())
 routerApi(app)
 app.use(logErrors)
+app.use(boomErrorHandler)
 app.use(errorHandler)
 
 
